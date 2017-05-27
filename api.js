@@ -24,6 +24,5 @@ export default getImages(keywords) => {
       });
     };
     xhr.send();
-    return resolve(images)
   })
 }
