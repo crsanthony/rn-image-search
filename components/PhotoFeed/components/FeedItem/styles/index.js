@@ -3,7 +3,6 @@ import { StyleSheet } from 'react-native';
 
 const Styles = StyleSheet.create({
   feedContainer: {
-    flex: 1
   }
 });
 

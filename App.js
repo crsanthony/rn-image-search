@@ -5,12 +5,13 @@ import { connect } from 'react-redux';
 import configureStore from './configureStore';
 import SearchBar from './components/SearchBar'
 import PhotoFeed from './components/PhotoFeed';
+import { fetchImages } from './actions';
 
 const store = configureStore();
 
-const Base = () => (
+const Base = (props) => (
   <View style={styles.container}>
-    <SearchBar />
+    <SearchBar search={props.fetchImages}/>
     <PhotoFeed />
   </View>
 )
@@ -26,10 +27,9 @@ const App = () => (
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'column',
     backgroundColor: '#fff',
-    paddingTop: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: 40
   },
 });
 
@@ -41,7 +41,7 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    fetchImages: () => dispatch(fetchImages())
+    fetchImages: (keywords) => dispatch(fetchImages(keywords))
   }
 }
 

@@ -2,9 +2,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 
 const Styles = StyleSheet.create({
-  detailContainer: {
-    flex: 1
-  }
+  detailContainer: {}
 });
 
 export default Styles;

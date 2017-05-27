@@ -1,7 +1,7 @@
 const key = '5480004-8d06e2ca3fd56c1769698f60e';
 const rootUrl = "https://pixabay.com"
 
-export default getImages(keywords) => {
+export default getImages = (keywords) => {
   return new Promise((resolve, reject) => {
     var xhr = new XMLHttpRequest();
     let keywords = keywords.join('+');

@@ -21,10 +21,12 @@ export function requestImagesFailure(err) {
   }
 }
 
-export function fetchImages() {
+export function fetchImages(keywords) {
   return (dispatch) => {
+    console.log(keywords);
     dispatch(requestImages())
-    getImages()
+
+    getImages(keywords)
       .then((data) => {
         dispatch(requestImagesSuccess(data))
       })
