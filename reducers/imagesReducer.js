@@ -18,7 +18,7 @@ export default function dataReducer (state = initialState, action) {
       return {
         ...state,
         retrieving: false,
-        data: action.data
+        images: action.data
       }
     case RETRIEVING_IMAGES_ERROR:
       return {

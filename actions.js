@@ -24,10 +24,9 @@ export function requestImagesFailure(err) {
 export function fetchImages(keywords) {
   return (dispatch) => {
     dispatch(requestImages())
-    getImages(keywords)
-      .then((data) => {
-        dispatch(requestImagesSuccess(data))
-      })
+    getImages(keywords).then((data) => {
+      dispatch(requestImagesSuccess(data.hits))
+    })
       .catch((err) => dispatch(requestImagesFailure(err)))
   }
 }

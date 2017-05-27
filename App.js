@@ -12,7 +12,7 @@ const store = configureStore();
 const Base = (props) => (
   <View style={styles.container}>
     <SearchBar search={props.fetchImages}/>
-    <PhotoFeed />
+    <PhotoFeed images={props.images}/>
   </View>
 )
 
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
 
 function mapStateToProps (state) {
   return {
-    images: state.images
+    ...state
   }
 }
 
