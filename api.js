@@ -1,14 +1,16 @@
 const key = '5480004-8d06e2ca3fd56c1769698f60e';
-const rootUrl = "https://pixabay.com"
+const rootUrl = "https://pixabay.com/api"
 
 export default getImages = (keywords) => {
+  this.keywords = keywords;
   return new Promise((resolve, reject) => {
     var xhr = new XMLHttpRequest();
-    let keywords = keywords.join('+');
-    const url = rootUrl + '?key=' + key + '&q=' + keywords + '&image_type=photo';
+    let keywords = this.keywords.join('+');
+    const url = rootUrl + '?key=' + key + '&q=' + keywords;
     xhr.open("GET", url);
     xhr.onload = function () {
       if (this.status >= 200 && this.status < 300) {
+        console.log('RESPONSE ', xhr.response);
         resolve(xhr.response);
       } else {
         reject({

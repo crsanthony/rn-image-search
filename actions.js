@@ -1,4 +1,4 @@
-import { RETREIVING_IMAGES, RETRIEVING_IMAGES_SUCCESS, RETRIEVING_IMAGES_ERROR } from './constants'
+import { RETRIEVING_IMAGES, RETRIEVING_IMAGES_SUCCESS, RETRIEVING_IMAGES_ERROR } from './constants'
 import getImages from './api';
 
 export function requestImages() {
@@ -23,9 +23,7 @@ export function requestImagesFailure(err) {
 
 export function fetchImages(keywords) {
   return (dispatch) => {
-    console.log(keywords);
     dispatch(requestImages())
-
     getImages(keywords)
       .then((data) => {
         dispatch(requestImagesSuccess(data))

@@ -11,15 +11,15 @@ import s from './styles';
 export default class SearchBar extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
       keywordsInput: ''
     }
   }
 
-  onChange = (keywordsInput) => {
-    this.setState({keywordsInput});
-    this.props.search(keywordsInput);
+  onSearch = () => {
+    let keys = this.state.keywordsInput;
+    let wordsArry = keys.split(' ');
+    this.props.search(wordsArry);
   }
 
   render() {
@@ -29,10 +29,10 @@ export default class SearchBar extends Component {
           <TextInput
             editable={true}
             style={s.searchInput}
-            onChangeText={this.onChange}
+            onChangeText={(keywordsInput) =>  this.setState({keywordsInput})}
             value={this.state.keywordsInput} />
             <TouchableOpacity
-               onPress={() => this.props.search(this.state.keywordsInput)}
+               onPress={this.onSearch}
                style={s.searchButton}>
                <Text style={s.searchButtonText}>Search</Text>
             </TouchableOpacity>
