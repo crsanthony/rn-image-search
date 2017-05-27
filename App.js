@@ -6,17 +6,17 @@ import configureStore from './configureStore';
 
 const store = configureStore();
 
-const BaseComponent = () => (
+const Base = () => (
   <View style={styles.container}>
     <Text>101 Images Search</Text>
   </View>
 )
 
-BaseComponent = connect(mapStateToProps, mapDispatchToProps)(BaseComponent)
+Base = connect(mapStateToProps, mapDispatchToProps)(Base)
 
 const App = () => (
   <Provider store={store}>
-    <BaseComponent />
+    <Base />
   </Provider>
 );
 
