@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import appData from './dataReducer'
+import images from './imagesReducer'
 
 const rootReducer = combineReducers({
-    appData
+  images
 })
 
 export default rootReducer

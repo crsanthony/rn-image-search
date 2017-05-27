@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Provider } from 'react-redux'
+import configureStore from './configureStore'
+
+const store = configureStore();
 
 export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Image Search</Text>
-      </View>
+      <Provider store={store}>
+        <View style={styles.container}>
+          <Text>Images Search</Text>
+        </View>
+      </Provider>
     );
   }
 }
