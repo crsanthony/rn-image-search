@@ -3,12 +3,15 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-redux';
 import { connect } from 'react-redux';
 import configureStore from './configureStore';
+import SearchBar from './components/SearchBar'
+import PhotoFeed from './components/PhotoFeed';
 
 const store = configureStore();
 
 const Base = () => (
   <View style={styles.container}>
-    <Text>101 Images Search</Text>
+    <SearchBar />
+    <PhotoFeed />
   </View>
 )
 
@@ -24,6 +27,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    paddingTop: 20,
     alignItems: 'center',
     justifyContent: 'center',
   },
