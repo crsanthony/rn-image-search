@@ -5,7 +5,7 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        Welcome to our image search application. 
+        <Text>Image Search</Text>
       </View>
     );
   }
