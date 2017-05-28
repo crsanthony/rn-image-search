@@ -18,5 +18,18 @@ Should you want to build this way, you'll need to download the Expo XDE, and the
 ## Things I used to build this
 - [`create-react-native-app`](https://github.com/react-community/create-react-native-app).  As mentioned above, this is a React Native supported method of bootstrapping RN applications, and testing/distributing without the need to use the app store.
 - [`react-native-swiper`]('https://github.com/leecade/react-native-swiper'). Swiping made easy.  
-- [`react-native`]('https://github.com/facebook/react-native'). Goes without saying, but react native is a framework for building native mobile apps without the heavy lifiting of native code. 
--
+- [`react-native`]('https://github.com/facebook/react-native'). Goes without saying, but react native is a framework for building native mobile apps without the heavy lifiting of native code.
+- [`redux`]('https://github.com/reactjs/redux'). A predictable state container for javascript apps.
+- [pixabay api]('https://pixabay.com/api/docs/').  Free and beautiful images via an easy to use api.  
+
+## Notes/Known Issues:
+- Swiping seemed like the natural behavior for viewing a particular feed item's detail, but capturing the feed item that was being touched proved difficult, since multiple feed items are visible at any time, and using `onPress` for the item itself (which would make it easy to pass up the item data) is not always triggered by a swipe on the `swipable` component.
+Knowing that there's probably a reasonable way to solve for this, I kept `<Swiper>` and opted to have the user touch an image to view its detail, and then `swipe`, to return to the feed.  This would allow us to figure out the desired swipe behavior in a later iteration, while maintaining a reasonable ux for current users.
+
+- I used a callback rather than an action to set the current detail photo. There's a good deal of discussion around whether UI specific information needs to be managed by a reducer, but my feeling is that if only one other component cares about the information (and that component is the parent), a callback is a reasonable way to pass that information around.
+
+- I set out to create an orientation specific layout, and wrote a slightly hacky way of determining the orientation through `onLayout`.  This felt a bit overwrought and uneccessary.  However, the layout could be improved by using device dimensions to set widths for images et. al.
+
+- The specs called for noting the image resolution in the detail info.  However, the pixabay api only provides pixel dimensions, and there's way to read resolution from an image rendered by an RN `Image`.  Thus, I fell back to listing dimensions for the original image.
+
+  
