@@ -5,6 +5,7 @@ import {
   ListView
 } from 'react-native';
 import InfiniteScrollView from 'react-native-infinite-scroll-view'
+import Swiper from 'react-native-swiper';
 import FeedItem from './components/FeedItem';
 import Detail from './components/Detail';
 
@@ -25,14 +26,16 @@ export default class PhotoFeed extends Component {
 
     return (
       <View style={s.feedContainer}>
-       <View>
-        <ListView
-          dataSource={this.state.dataSource.cloneWithRows(images)}
-          renderRow={(item) => <FeedItem {...item} />} />
-      </View>
-      <View>
-        <Detail item={{src: 'http://google.com'}} />
-      </View>
+        <Swiper>
+          <View>
+            <ListView
+              dataSource={this.state.dataSource.cloneWithRows(images)}
+              renderRow={(item) => <FeedItem {...item} />} />
+          </View>
+          <View>
+            <Detail item={{src: 'http://google.com'}} />
+          </View>
+        </Swiper>
       </View>
     )
   }
