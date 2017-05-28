@@ -3,7 +3,6 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-redux';
 import { connect } from 'react-redux';
 import configureStore from './configureStore';
-import SearchBar from './components/SearchBar'
 import PhotoFeed from './components/PhotoFeed';
 import { fetchImages } from './actions';
 
@@ -11,7 +10,6 @@ const store = configureStore();
 
 const Base = (props) => (
   <View style={styles.container}>
-    <SearchBar search={props.fetchImages}/>
     <PhotoFeed {...props} />
   </View>
 )

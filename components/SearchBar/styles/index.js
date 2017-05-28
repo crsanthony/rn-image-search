@@ -4,7 +4,6 @@ import { StyleSheet } from 'react-native';
 const Styles = StyleSheet.create({
   searchContainer: {
     height: 60,
-    width: 100,
     flexDirection: 'row',
     marginBottom: 5
   },

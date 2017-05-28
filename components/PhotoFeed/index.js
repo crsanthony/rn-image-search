@@ -7,6 +7,7 @@ import {
 import Swiper from 'react-native-swiper';
 import FeedItem from './components/FeedItem';
 import Detail from './components/Detail';
+import SearchBar from '../SearchBar'
 import s from './styles';
 import { RETRIEVING_IMAGES, RETRIEVING_IMAGES_SUCCESS, RETRIEVING_IMAGES_ERROR } from '../../constants';
 
@@ -17,7 +18,23 @@ export default class PhotoFeed extends Component {
     this.state = {
       dataSource: ds,
       detail: null,
-      canSwipe: false
+      canSwipe: false,
+      portrait: true,
+    }
+  }
+
+  onLayout = (evt) => {
+    //cobble together a proxy for device orientation
+    if (!this.state.layout) {
+      this.setState({layout: evt.nativeEvent.layout});
+      return;
+    }
+
+    const layout = evt.nativeEvent.layout;
+    if (layout.width != this.state.layout.width) {
+      console.log('change orientation');
+      let portrait = !this.state.portrait;
+      this.setState({portrait});
     }
   }
 
@@ -48,6 +65,7 @@ export default class PhotoFeed extends Component {
   renderFeed() {
     if (!this.props.imageData.results) return null;
     let  images  = this.props.imageData.results.hits;
+    if (!images.length) return <Text>Sorry, no results found :(</Text>
     return (
       <Swiper
         ref='swiper'
@@ -67,7 +85,8 @@ export default class PhotoFeed extends Component {
 
   render() {
     return (
-      <View style={s.feedContainer}>
+      <View style={s.feedContainer} onLayout={this.onLayout}>
+        <SearchBar search={this.props.fetchImages}/>
         { this.renderForStatus() }
       </View>
     )
