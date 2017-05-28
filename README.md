@@ -17,10 +17,10 @@ Should you want to build this way, you'll need to download the Expo XDE, and the
 
 ## Things I used to build this
 - [`create-react-native-app`](https://github.com/react-community/create-react-native-app).  As mentioned above, this is a React Native supported method of bootstrapping RN applications, and testing/distributing without the need to use the app store.
-- [`react-native-swiper`]('https://github.com/leecade/react-native-swiper'). Swiping made easy.  
-- [`react-native`]('https://github.com/facebook/react-native'). Goes without saying, but react native is a framework for building native mobile apps without the heavy lifiting of native code.
-- [`redux`]('https://github.com/reactjs/redux'). A predictable state container for javascript apps.
-- [pixabay api]('https://pixabay.com/api/docs/').  Free and beautiful images via an easy to use api.  
+- [`react-native-swiper`](https://github.com/leecade/react-native-swiper). Swiping made easy.  
+- [`react-native`](https://github.com/facebook/react-native). Goes without saying, but react native is a framework for building native mobile apps without the heavy lifting of native code.
+- [`redux`](https://github.com/reactjs/redux). A predictable state container for javascript apps.
+- [pixabay api](https://pixabay.com/api/docs/).  Free and beautiful images via an easy to use api.  
 
 ## Notes/Known Issues:
 - Swiping seemed like the natural behavior for viewing a particular feed item's detail, but capturing the feed item that was being touched proved difficult, since multiple feed items are visible at any time, and using `onPress` for the item itself (which would make it easy to pass up the item data) is not always triggered by a swipe on the `swipable` component.
