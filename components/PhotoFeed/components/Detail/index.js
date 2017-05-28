@@ -9,7 +9,6 @@ import s from './styles';
 export default class Detail extends Component {
 
   render() {
-    console.log(this.props);
     return (
       <View style={s.detailContainer}>
         <View style={s.detailImageContainer}>

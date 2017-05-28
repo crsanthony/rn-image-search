@@ -32,7 +32,6 @@ export default class PhotoFeed extends Component {
 
     const layout = evt.nativeEvent.layout;
     if (layout.width != this.state.layout.width) {
-      console.log('change orientation');
       let portrait = !this.state.portrait;
       this.setState({portrait});
     }
