@@ -7,7 +7,7 @@ import {
 import Swiper from 'react-native-swiper';
 import FeedItem from './components/FeedItem';
 import Detail from './components/Detail';
-import SearchBar from '../SearchBar'
+import SearchBar from './components/SearchBar'
 import s from './styles';
 import { RETRIEVING_IMAGES, RETRIEVING_IMAGES_SUCCESS, RETRIEVING_IMAGES_ERROR } from '../../constants';
 
@@ -55,7 +55,8 @@ export default class PhotoFeed extends Component {
         ref='swiper'
         scrollEnabled={this.state.canSwipe}
         onMomentumScrollEnd={this.onMomentumScrollEnd}>
-        <View>
+        <View style={s.listContainer}>
+          <Text>Tap on any image to view</Text>
           <ListView
             dataSource={this.state.dataSource.cloneWithRows(images)}
             renderRow={(item) => <FeedItem {...item} setDetail={this.setDetail} />} />

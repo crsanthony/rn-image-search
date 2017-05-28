@@ -12,6 +12,7 @@ export default class Detail extends Component {
     return (
       <View style={s.detailContainer}>
         <View style={s.detailImageContainer}>
+
           <Image
             style={{
               width: this.props.webformatWidth,
@@ -20,6 +21,7 @@ export default class Detail extends Component {
             source={{uri: this.props.webformatURL}} />
         </View>
         <View style={s.detailMeta}>
+          <Text>Swipe in any direction to return to your feed</Text>
           <Text>Author: {this.props.user}</Text>
           <Text>Tags: {this.props.tags}</Text>
           <Text>Dimensions: {this.props.imageHeight} x {this.props.imageWidth}</Text>
