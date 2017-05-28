@@ -11,14 +11,13 @@ export default function dataReducer (state = initialState, action) {
     case RETRIEVING_IMAGES:
       return {
         ...state,
-        images: [],
         retrieving: true
       }
     case RETRIEVING_IMAGES_SUCCESS:
       return {
         ...state,
+        images: action.data,
         retrieving: false,
-        images: action.data
       }
     case RETRIEVING_IMAGES_ERROR:
       return {

@@ -23,6 +23,7 @@
     "react": "16.0.0-alpha.6",
     "react-native": "^0.44.0",
     "react-native-button": "^1.8.2",
+    "react-native-infinite-scroll-view": "^0.4.2",
     "react-redux": "^5.0.5",
     "redux": "^3.6.0",
     "redux-observable": "^0.14.1",

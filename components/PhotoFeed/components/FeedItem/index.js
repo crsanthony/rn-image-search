@@ -8,14 +8,10 @@ import {
 import s from './styles';
 
 export default class FeedItem extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <View style={s.feedItemContainer}>
-        <Image style={{width: 100, height: 100}} source={{uri: this.props.webformatURL}} />
+        <Image style={{width: this.props.previewHeight * 2, height: this.props.previewWidth * 2}} source={{uri: this.props.webformatURL}} />
       </View>
     )
   }
