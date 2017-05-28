@@ -14,12 +14,21 @@ export default class PhotoFeed extends Component {
     super(props)
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
-      dataSource: ds
+      dataSource: ds,
+      detail: null,
+      canSwipe: false
     }
   }
 
-  loadMoreImages = () => {
-    //this.props.fetchImages();
+  setDetail = (detail) => {
+    this.setState({detail, canSwipe: true});
+    this.refs['swiper'].scrollBy(1);
+  }
+
+  onMomentumScrollEnd = () => {
+    if (this.refs['swiper'].state.index === 0) {
+      this.setState({canSwipe: false});
+    }
   }
 
   render() {
@@ -27,14 +36,17 @@ export default class PhotoFeed extends Component {
     let  images  = this.props.imageData.results.hits;
     return (
       <View style={s.feedContainer}>
-        <Swiper>
+        <Swiper
+          ref='swiper'
+          scrollEnabled={this.state.canSwipe}
+          onMomentumScrollEnd={this.onMomentumScrollEnd}>
           <View>
             <ListView
               dataSource={this.state.dataSource.cloneWithRows(images)}
-              renderRow={(item) => <FeedItem {...item} />} />
+              renderRow={(item) => <FeedItem {...item} setDetail={this.setDetail} />} />
           </View>
           <View>
-            <Detail />
+            <Detail {...this.state.detail} />
           </View>
         </Swiper>
       </View>

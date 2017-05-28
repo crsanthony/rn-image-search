@@ -9,14 +9,18 @@ import {
 import s from './styles';
 
 export default class FeedItem extends Component {
-  toggleDetail = () => {}
+  toggleDetail = () => {
+    this.props.setDetail(this.props);
+  }
 
   render() {
     return (
       <View style={s.feedItemContainer}>
-        <Image
-          style={{width: this.props.previewHeight * 2, height: this.props.previewWidth * 2}}
-          source={{uri: this.props.webformatURL}} />
+        <TouchableOpacity onPress={this.toggleDetail}>
+          <Image
+            style={{width: this.props.previewHeight * 2, height: this.props.previewWidth * 2}}
+            source={{uri: this.props.webformatURL}} />
+        </TouchableOpacity>
       </View>
     )
   }
