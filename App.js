@@ -12,7 +12,7 @@ const store = configureStore();
 const Base = (props) => (
   <View style={styles.container}>
     <SearchBar search={props.fetchImages}/>
-    <PhotoFeed images={props.images}/>
+    <PhotoFeed {...props} />
   </View>
 )
 

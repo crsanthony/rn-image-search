@@ -1,7 +1,7 @@
 import { RETRIEVING_IMAGES, RETRIEVING_IMAGES_SUCCESS, RETRIEVING_IMAGES_ERROR } from '../constants';
 
 const initialState = {
-  images: [],
+  results: null,
   retrieving: false,
   error: false
 }
@@ -16,7 +16,7 @@ export default function dataReducer (state = initialState, action) {
     case RETRIEVING_IMAGES_SUCCESS:
       return {
         ...state,
-        images: action.data,
+        results: action.data,
         retrieving: false,
       }
     case RETRIEVING_IMAGES_ERROR:

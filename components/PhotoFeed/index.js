@@ -8,7 +8,6 @@ import InfiniteScrollView from 'react-native-infinite-scroll-view'
 import Swiper from 'react-native-swiper';
 import FeedItem from './components/FeedItem';
 import Detail from './components/Detail';
-
 import s from './styles';
 
 export default class PhotoFeed extends Component {
@@ -20,20 +19,26 @@ export default class PhotoFeed extends Component {
     }
   }
 
-  render() {
-    let images = this.props.images.images ? this.props.images.images : this.props.images //wtf
-    if (!images.length) return null;
+  loadMoreImages = () => {
+    //this.props.fetchImages();
+  }
 
+  render() {
+    if (!this.props.imageData.results) return null;
+    let  images  = this.props.imageData.results.hits;
     return (
       <View style={s.feedContainer}>
         <Swiper>
           <View>
             <ListView
+              canLoadMore={true}
+              renderScrollComponent={props => <InfiniteScrollView {...props} />}
+              onLoadMoreAsync={this.loadMoreImages}
               dataSource={this.state.dataSource.cloneWithRows(images)}
               renderRow={(item) => <FeedItem {...item} />} />
           </View>
           <View>
-            <Detail item={{src: 'http://google.com'}} />
+            <Detail />
           </View>
         </Swiper>
       </View>
