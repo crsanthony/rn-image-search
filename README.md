@@ -5,7 +5,7 @@ I opted to try out [`create-react-native-app`](https://github.com/react-communit
 - if you'd like to run this app as is, without cloning it to your own machine, Expo/RN has made it much easier to try it out without becoming a beta tester in the app store.  Just:
 - Download the Expo app from whatever app store you use.
 - Create an account
-- Point your mobile browser to `https://exp.host/@crsanthony/image-search` and viola, it will run as any other app would on your phone.
+- Point your mobile browser to `https://exp.host/@crsanthony/image-search` and viola, it should run as any other app would on your phone.
 - running it in your local simulator is almost as easy, but requires downloading the Expo XDE to your local machine. Head to https://expo.io/ and follow the very simple instructions.
 - building from your local machine is also doable, but involves using `npm run eject`.  This will let you build do a device/simulator in the same way you normally would, but permanently separates you from the expo build configuration.
 Should you want to build this way, you'll need to download the Expo XDE, and then :
@@ -14,3 +14,9 @@ Should you want to build this way, you'll need to download the Expo XDE, and the
 - open the Expo app and run via the 'Device' dropdown to confirm it's running ok in the simulator
 - ok, now for ejecting.  This permanently changes the project, and the resulting project shouldn't be commited to this repo.  But this will give you full control over the build configuration and let you deploy to your device through Xcode or Android studio.
 - ready? run `npm run eject` and follow the prompts.
+
+## Things I used to build this
+- [`create-react-native-app`](https://github.com/react-community/create-react-native-app).  As mentioned above, this is a React Native supported method of bootstrapping RN applications, and testing/distributing without the need to use the app store.
+- [`react-native-swiper`]('https://github.com/leecade/react-native-swiper'). Swiping made easy.  
+- [`react-native`]('https://github.com/facebook/react-native'). Goes without saying, but react native is a framework for building native mobile apps without the heavy lifiting of native code. 
+-

@@ -18,22 +18,7 @@ export default class PhotoFeed extends Component {
     this.state = {
       dataSource: ds,
       detail: null,
-      canSwipe: false,
-      portrait: true,
-    }
-  }
-
-  onLayout = (evt) => {
-    //cobble together a proxy for device orientation
-    if (!this.state.layout) {
-      this.setState({layout: evt.nativeEvent.layout});
-      return;
-    }
-
-    const layout = evt.nativeEvent.layout;
-    if (layout.width != this.state.layout.width) {
-      let portrait = !this.state.portrait;
-      this.setState({portrait});
+      canSwipe: false
     }
   }
 
@@ -84,7 +69,7 @@ export default class PhotoFeed extends Component {
 
   render() {
     return (
-      <View style={s.feedContainer} onLayout={this.onLayout}>
+      <View style={s.feedContainer}>
         <SearchBar search={this.props.fetchImages}/>
         { this.renderForStatus() }
       </View>
