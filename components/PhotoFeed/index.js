@@ -4,7 +4,6 @@ import {
   Text,
   ListView
 } from 'react-native';
-import InfiniteScrollView from 'react-native-infinite-scroll-view'
 import Swiper from 'react-native-swiper';
 import FeedItem from './components/FeedItem';
 import Detail from './components/Detail';
@@ -31,9 +30,6 @@ export default class PhotoFeed extends Component {
         <Swiper>
           <View>
             <ListView
-              canLoadMore={true}
-              renderScrollComponent={props => <InfiniteScrollView {...props} />}
-              onLoadMoreAsync={this.loadMoreImages}
               dataSource={this.state.dataSource.cloneWithRows(images)}
               renderRow={(item) => <FeedItem {...item} />} />
           </View>
