@@ -5,7 +5,8 @@ const Styles = StyleSheet.create({
   searchContainer: {
     height: 60,
     width: 100,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginBottom: 5
   },
   searchInputContainer: {
     paddingLeft: 5,

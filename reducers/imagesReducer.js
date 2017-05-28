@@ -1,9 +1,9 @@
 import { RETRIEVING_IMAGES, RETRIEVING_IMAGES_SUCCESS, RETRIEVING_IMAGES_ERROR } from '../constants';
 
 const initialState = {
+  keywords: null,
   results: null,
-  retrieving: false,
-  error: false
+  status: 'waiting',
 }
 
 export default function dataReducer (state = initialState, action) {
@@ -11,19 +11,20 @@ export default function dataReducer (state = initialState, action) {
     case RETRIEVING_IMAGES:
       return {
         ...state,
-        retrieving: true
+        keywords: action.data,
+        status: RETRIEVING_IMAGES
       }
     case RETRIEVING_IMAGES_SUCCESS:
       return {
         ...state,
         results: action.data,
-        retrieving: false,
+        status: RETRIEVING_IMAGES_SUCCESS
       }
     case RETRIEVING_IMAGES_ERROR:
       return {
         ...state,
         retrieving: false,
-        error: true
+        status: RETRIEVING_IMAGES_ERROR
       }
     default:
       return state

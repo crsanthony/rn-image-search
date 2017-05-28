@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 const Styles = StyleSheet.create({
   detailContainer: {},
   detailImageContainer: {
-    maxHeight: 400,
+    maxHeight: 500,
     overflow: 'hidden'
   },
   detailMeta: {

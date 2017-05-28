@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     backgroundColor: '#fff',
-    paddingTop: 40
+    paddingTop: 20
   },
 });
 
